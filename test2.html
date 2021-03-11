@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <title>TEST2</title>
+</head>
+
+<body>
+    <h1>AJAX test</h1>
+    <div id="list"></div>
+    <script>
+        let src = "https://padax.github.io/taipei-day-trip-resources/taipei-attractions.json";
+        let list = document.getElementById("list");
+        list.innerHTML = "LOADING";
+
+        fetch(src).then(function(response){
+            return response.json();
+        }).then(function(result){
+            // console.log(result["result"]["results"][0])
+            let product;
+            for (let i = 0; i < 10;i++){
+                product = result["result"]["results"][i]["stitle"];
+
+                list.textContent += product + "<hr/>"
+
+            }
+            
+
+        })
+
+    </script>
+
+</body>

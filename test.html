@@ -1,7 +1,69 @@
-<body>
-    <ul>
-        <p>aaa</p>
-        <p>bbb</p>
-    </ul>
+<!DOCTYPE html>
+
+<head>
+    <script type="text/javascript">
+        
+        function setting(){
+            let src = "https://padax.github.io/taipei-day-trip-resources/taipei-attractions.json";
+            // let content = document.getElementById("content");
+            fetch(src).then(function(response){
+                return response.json();
+            }).then(function(result){
+                // console.log("GET IT", result)
+                content.innerHTML =""
+                let product;
+
+                for(let i=0; i < 10; i++){
+                    product = result["result"]["results"][i];
+                    console.log(product)
+                }
+
+            })
+
+            
+            var proto_foto = none;
+            var proto_name = "none";
+
+            var content = document.getElementById("content");
+            var test_div = document.createElement("div");
+            // var test_word = document.createTextNode("TES");
+            // test_div.appendChild(test_word);
+            this.appendChild(test_div);
+            // test_word.textContent = "aaa";
+
+            // var spot_box_div = document.createElement("div");
+            // spot_box_div.className = "box";
+
+            // var spot_foto_img = document.createElement("img");
+            // spot_foto.src = proto_foto;
+
+            // var spot_name_div = document.createElement("div");
+            // spot_name_div.className = "title";
+
+            // var spot_name = document.createTextNode(proto_name);
+            // spot_name_div.appendChild(spot_name);
+            
+
+            // spot_box_div.appendChild(spot_foto_img);
+            // spot_box_div.appendChild(spot_name_div);
+            // content.appendChild(spot_box_div);
+            // // content.textContent = "21fds"
+        }
+        
+        function change(){
+            var obj = document.getElementById("sex");
+            obj.textContent = "Girl" ;
+            obj.style.fontSize = "50px";
+
+        }
+
+    </script>
+</head>
+<!-- onload="setting();" -->
+
+<body onload="setting();"> 
+    <div id="content"></div>
+    <button onclick="change();">Change</button>
+    <div></div>
 </body>
 

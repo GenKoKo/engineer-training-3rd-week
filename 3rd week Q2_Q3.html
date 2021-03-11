@@ -8,48 +8,72 @@
         <link rel="stylesheet" href="Q2_Q3 style.css" type="text/css">
         <script type="text/javascript">
             targetUrl = "https://padax.github.io/taipei-day-trip-resources/taipei-attractions.json"
+            let content = document.getElementById("content");
+            // function getData(){
+            fetch(targetUrl).then(function(response){
+                return response.json();
+            }).then(function(result){
+                
+                let product;
+                let proto_name;
+                let proto_foto;
+                for (let i =0; i < 8; i++){
+                    proto_name = result["result"]["results"][i]["stitle"];
+                    proto_foto = "http"+ result["result"]["results"][i]["file"].split("http")[1];
+                    content.textContent = proto_name + proto_foto;
+                    console.log(proto_name, proto_foto);
+                }
+                
+            })
+            
+            //     var proto_foto = none;
+            //     var proto_name = none;
+            
+            //     var spot_box_div = document.createElement("div");
+            //     spot_box_div.className = "box";
 
-            function getData(){
-                var req = new XMLHttpRequest();
-                req.open("get", targetUrl);
-                req.send();
-                req.onload = function(){
-                    // var content = document.getElementById("content");
-                    // content.innerHTML = this.responseText;
+            //     var spot_foto_img = document.createElement("img");
+            //     spot_foto.src = proto_foto;
+            
+            //     var spot_name_div = document.createElement("div");
+            //     spot_name_div.className = "title";
+            
+            //     var spot_name = document.createTextNode(proto_name);
+            //     spot_name_div.appendChild(spot_name);
+            
+            
+            //     spot_box_div.appendChild(spot_foto_img);
+                //     spot_box_div.appendChild(spot_name_div);
+                //     content.appendChild(spot_box_div);
 
-                    proto_foto = none;
-                    proto_name = none;
-
-                    var spot_box_div = document.createElement("div");
-                    spot_box_div.className = "box";
-
-                    var spot_foto_img = document.createElement("img");
-                    spot_foto.src = proto_foto;
-
-                    var spot_name_div = document.createElement("div");
-                    spot_name_div.className = "title";
-
-                    var spot_name = document.createTextNode(proto_name);
-                    spot_name_div.appendChild(spot_name);
+                //     document.getElementById("content").appendChild(spot_box_div);
+                
+                
                     
-
-                    spot_box_div.appendChild(spot_foto_img);
-                    spot_box_div.appendChild(spot_name_div);
+                
+                // for ( let i = 0; i < 8; i++){
+                    //     // proto_name = i.result.results.stitle;
+                    //     // content.innerHTML = i;
+                    //     var obj = JSON.stringify(data["result"]["results"][i]["stitle"])
+                    //     content.textContent = proto_name;
+                    // }
                     
-                    document.getElementById("content").appendChild(spot_box_div);
+                    // content.innerHTML = "8";
 
-                };
-            }
-
+                    
+                    
+                    // };
+                    // }
+                    
         </script>
 
-    </head>
+</head>
 
-    <header>
-        <div class="logo">My Website </div> 
+<header>
+    <div class="logo">My Website </div> 
         <div class="blank"></div> 
         <div class="item"> 
-            <span onclick="getData();">Item1</span>
+            <span>Item1</span>
             <span>Item2</span>
             <span>Item3</span>
             <span>Item4</span>
@@ -58,32 +82,32 @@
             <img src="https://genkoko.github.io/engineer-training-1st-week/icon_burger.png" width="20px"/>
         </a>
     </header>
-
-    <body onload="getData();">
+    <!-- onload="getData();" -->
+    <body >
+        
+        <div class="welcome">
+            Welcome to MyPage
+        </div>
+        
+        
         <main>
-            <div class="welcome">
-                Welcome to MyPage
-            </div>
-        </main>
-
-        <photo>
             <div id="content">
                 <!-- <div class="box">
                     <img src="https://genkoko.github.io/engineer-training-1st-week/flag_greece.png" />
                     <div class="title">Greece</div>
                 </div> -->
-
+                
             </div>
-        </photo>
+        </main>
     </body>
-
-
-</html>
-
-
-
-<!-- <div class="box">
-    <img src="https://genkoko.github.io/engineer-training-1st-week/flag_eygpt.png" />
+    
+    
+    </html>
+    
+    
+    
+    <!-- <div class="box">
+        <img src="https://genkoko.github.io/engineer-training-1st-week/flag_eygpt.png" />
     <div class="title">Eygpt</div>
 </div>
 <div class="box">
@@ -110,3 +134,12 @@
     <img src="https://genkoko.github.io/engineer-training-1st-week/flag_belguim.png" />
     <div class="title">Belguim</div>
 </div> -->
+
+    <!-- // var req = new XMLHttpRequest();
+    // req.open("get", targetUrl);
+    // req.send();
+    // req.onload = function(){
+    //     var data = JSON.parse(this.responseText);
+    //     var content = document.getElementById("content");
+    //     var obj = JSON.stringify(data["result"]["results"][1]["stitle"].replace("\"",""))
+    //     content.textContent = obj; -->

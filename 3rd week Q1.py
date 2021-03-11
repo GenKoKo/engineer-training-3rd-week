@@ -9,7 +9,7 @@ import urllib.request as request
 import json
 
 with request.urlopen(targetUrl) as response:
-    # 以UTF-8 load json資料
+    #  load 資料成 json格式
     data = json.load(response)
 
 target_list = data["result"]["results"]
