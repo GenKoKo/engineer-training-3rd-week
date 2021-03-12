@@ -62,15 +62,16 @@ header,.item{
 }
 
 #content{
-    padding: 5px;
+    padding-top: 100px;
+    padding: 10px;
     width: 1200px;
     margin-left: auto;
     margin-right: auto;
-    /* border: 1px solid black; */
+    /* border: 1px solid grey; */
 
 }
 
-photo{
+main{
     display: flex;
     flex-wrap: wrap;
     /* justify-content: center; */
@@ -78,10 +79,9 @@ photo{
 
 .box{
      width:250px;
-     /* height: 250px; */
      padding: 10px;
      margin:10px;
-     /* background-color: rgb(161, 111, 111); */
+     background-color: rgb(67, 173, 235);
      display: inline-block;
      flex:none;
 
@@ -90,6 +90,7 @@ photo{
 
 .box img{
     width : 100%;
+    
 }
 
 .title{
@@ -99,7 +100,7 @@ photo{
 }  
 
 @media screen and (max-width: 600px){
-    .content{width: 90%; text-align: center;}
+    #content{width: 90%; text-align: center;}
     /* .welcome{font-size: 30px;} */
     .box{width: 90%;}
     .item{
@@ -120,7 +121,7 @@ photo{
 }
 
 @media screen and (min-width: 600px) and (max-width: 1200px) {
-    .content{width: 90%; text-align: center;}
+    #content{width: 90%; text-align: center;}
     .box{width: 40%;}
 
     

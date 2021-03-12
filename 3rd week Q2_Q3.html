@@ -6,66 +6,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1"/>
         <title>3rd week assignment Q2&Q3</title>
         <link rel="stylesheet" href="Q2_Q3 style.css" type="text/css">
-        <script type="text/javascript">
-            targetUrl = "https://padax.github.io/taipei-day-trip-resources/taipei-attractions.json"
-            let content = document.getElementById("content");
-            // function getData(){
-            fetch(targetUrl).then(function(response){
-                return response.json();
-            }).then(function(result){
-                
-                let product;
-                let proto_name;
-                let proto_foto;
-                for (let i =0; i < 8; i++){
-                    proto_name = result["result"]["results"][i]["stitle"];
-                    proto_foto = "http"+ result["result"]["results"][i]["file"].split("http")[1];
-                    content.textContent = proto_name + proto_foto;
-                    console.log(proto_name, proto_foto);
-                }
-                
-            })
-            
-            //     var proto_foto = none;
-            //     var proto_name = none;
-            
-            //     var spot_box_div = document.createElement("div");
-            //     spot_box_div.className = "box";
-
-            //     var spot_foto_img = document.createElement("img");
-            //     spot_foto.src = proto_foto;
-            
-            //     var spot_name_div = document.createElement("div");
-            //     spot_name_div.className = "title";
-            
-            //     var spot_name = document.createTextNode(proto_name);
-            //     spot_name_div.appendChild(spot_name);
-            
-            
-            //     spot_box_div.appendChild(spot_foto_img);
-                //     spot_box_div.appendChild(spot_name_div);
-                //     content.appendChild(spot_box_div);
-
-                //     document.getElementById("content").appendChild(spot_box_div);
-                
-                
-                    
-                
-                // for ( let i = 0; i < 8; i++){
-                    //     // proto_name = i.result.results.stitle;
-                    //     // content.innerHTML = i;
-                    //     var obj = JSON.stringify(data["result"]["results"][i]["stitle"])
-                    //     content.textContent = proto_name;
-                    // }
-                    
-                    // content.innerHTML = "8";
-
-                    
-                    
-                    // };
-                    // }
-                    
-        </script>
 
 </head>
 
@@ -99,6 +39,46 @@
                 
             </div>
         </main>
+
+        <script type="text/javascript">
+            targetUrl = "https://padax.github.io/taipei-day-trip-resources/taipei-attractions.json"
+            let content = document.getElementById("content");
+            // function getData(){
+            fetch(targetUrl).then( (response) => {
+                return response.json();
+            }).then( (result) => {
+
+                for (let i =0; i < 8; i++){
+                    // console.log(proto_name, proto_foto);
+                    var proto_name = result["result"]["results"][i]["stitle"];
+                    var proto_foto = "http"+ result["result"]["results"][i]["file"].split("http")[1];
+            
+                    var spot_box_div = document.createElement("div");
+                    spot_box_div.className = "box";
+
+                    var spot_foto_img = document.createElement("img");
+                    spot_foto_img.src = proto_foto;
+                
+                    var spot_name_div = document.createElement("div");
+                    spot_name_div.className = "title";
+                
+                    var spot_name = document.createTextNode(proto_name);
+                    spot_name_div.appendChild(spot_name);
+                
+                
+                    spot_box_div.appendChild(spot_foto_img);
+                    spot_box_div.appendChild(spot_name_div);
+                    content.appendChild(spot_box_div);
+
+                    document.getElementById("content").appendChild(spot_box_div);
+                }
+                
+            })
+            
+                
+                
+        </script>
+
     </body>
     
     
