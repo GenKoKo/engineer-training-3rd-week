@@ -94,7 +94,8 @@ header,.item{
     flex:auto;
     width : 100%;
     /* 高度不知是否有更好的設定方式 */
-    height: 75%;
+    height: 180px;
+    object-fit: cover;
     
 }
 
