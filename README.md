@@ -4,4 +4,4 @@
 
 Q2
 
-[3rd week assignment Q2&amp;Q3 (genkoko.github.io)](https://genkoko.github.io/engineer-training-week03/week3_Q2Q3.html)
+[3rd week assignment Q2&amp;Q3 (genkoko.github.io)](https://genkoko.github.io/engineer-training-week03/week03_Q2Q3.html)
