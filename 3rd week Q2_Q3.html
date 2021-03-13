@@ -44,39 +44,32 @@
             targetUrl = "https://padax.github.io/taipei-day-trip-resources/taipei-attractions.json"
             let content = document.getElementById("content");
             // function getData(){
+
             fetch(targetUrl).then( (response) => {
                 return response.json();
-            }).then( (result) => {
+                }).then( (result) => {
+                    for (let i =0; i < 8; i++){
+                        // console.log(proto_name, proto_foto);
+                        var proto_name = result["result"]["results"][i]["stitle"];
+                        var proto_foto = "http"+ result["result"]["results"][i]["file"].split("http")[1];
+                
+                        var spot_box_div = document.createElement("div");
+                        spot_box_div.className = "box";
 
-                for (let i =0; i < 8; i++){
-                    // console.log(proto_name, proto_foto);
-                    var proto_name = result["result"]["results"][i]["stitle"];
-                    var proto_foto = "http"+ result["result"]["results"][i]["file"].split("http")[1];
-            
-                    var spot_box_div = document.createElement("div");
-                    spot_box_div.className = "box";
-
-                    var spot_foto_img = document.createElement("img");
-                    spot_foto_img.src = proto_foto;
-                
-                    var spot_name_div = document.createElement("div");
-                    spot_name_div.className = "title";
-                
-                    var spot_name = document.createTextNode(proto_name);
-                    spot_name_div.appendChild(spot_name);
-                
-                
-                    spot_box_div.appendChild(spot_foto_img);
-                    spot_box_div.appendChild(spot_name_div);
-                    content.appendChild(spot_box_div);
-
-                    document.getElementById("content").appendChild(spot_box_div);
+                        var spot_foto_img = document.createElement("img");
+                        spot_foto_img.src = proto_foto;
+                    
+                        var spot_name_div = document.createElement("div");
+                        spot_name_div.className = "title";
+                    
+                        var spot_name = document.createTextNode(proto_name);
+                        spot_name_div.appendChild(spot_name);
+                    
+                        spot_box_div.appendChild(spot_foto_img);
+                        spot_box_div.appendChild(spot_name_div);
+                        content.appendChild(spot_box_div);
                 }
-                
-            })
-            
-                
-                
+            })       
         </script>
 
     </body>
@@ -84,42 +77,3 @@
     
     </html>
     
-    
-    
-    <!-- <div class="box">
-        <img src="https://genkoko.github.io/engineer-training-1st-week/flag_eygpt.png" />
-    <div class="title">Eygpt</div>
-</div>
-<div class="box">
-    <img src="https://genkoko.github.io/engineer-training-1st-week/flag_norway.png" />
-    <div class="title">Norway</div>
-</div>
-<div class="box">
-    <img src="https://genkoko.github.io/engineer-training-1st-week/flag_america.png" />
-    <div class="title">America</div>
-</div>
-<div class="box">
-    <img src="https://genkoko.github.io/engineer-training-1st-week/flag_australia.png" />
-    <div class="title">Australia</div>
-</div>
-<div class="box">
-    <img src="https://genkoko.github.io/engineer-training-1st-week/flag_india.png" />
-    <div class="title">India</div>
-</div>
-<div class="box">
-    <img src="https://genkoko.github.io/engineer-training-1st-week/flag_korea.png" />
-    <div class="title">Korea</div>
-</div>
-<div class="box">
-    <img src="https://genkoko.github.io/engineer-training-1st-week/flag_belguim.png" />
-    <div class="title">Belguim</div>
-</div> -->
-
-    <!-- // var req = new XMLHttpRequest();
-    // req.open("get", targetUrl);
-    // req.send();
-    // req.onload = function(){
-    //     var data = JSON.parse(this.responseText);
-    //     var content = document.getElementById("content");
-    //     var obj = JSON.stringify(data["result"]["results"][1]["stitle"].replace("\"",""))
-    //     content.textContent = obj; -->
