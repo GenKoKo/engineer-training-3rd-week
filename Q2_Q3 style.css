@@ -57,7 +57,7 @@ header,.item{
 }
 
 /* main{
-
+    display: flex;
 } */
 
 #content{
@@ -125,14 +125,36 @@ header,.item{
     .welcome{
         font-size: 230%;
     }
-    
 }
 
 @media screen and (min-width: 600px) and (max-width: 1200px) {
     #content{width: 90%; text-align: center;}
     .box{width: 40%;}
-
-    
-
  }
 
+button{
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 10px;
+}
+
+/* #load{
+    
+} */
+
+.btn{
+    
+    padding: 10px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color 0.5s;
+}
+
+.btn:hover{
+    background-color: burlywood;
+}
+
+.btn:active{
+    transform: translate(0px, 2px);
+}

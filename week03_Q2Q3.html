@@ -22,8 +22,8 @@
             <img src="https://genkoko.github.io/engineer-training-1st-week/icon_burger.png" width="20px"/>
         </a>
     </header>
-    <!-- onload="getData();" -->
-    <body >
+    
+    <body onload="getData();">
         
         <div class="welcome">
             Welcome to MyPage
@@ -31,45 +31,52 @@
         
         
         <main>
-            <div id="content">
-                <!-- <div class="box">
-                    <img src="https://genkoko.github.io/engineer-training-1st-week/flag_greece.png" />
-                    <div class="title">Greece</div>
-                </div> -->
-                
-            </div>
+            <div id="content"></div>
+
+            <button onclick="getData();" class="btn">
+                <div id="load">Load More</div>
+            </button>
+            <br/><br/>
+
         </main>
+
+
 
         <script type="text/javascript">
             targetUrl = "https://padax.github.io/taipei-day-trip-resources/taipei-attractions.json"
             let content = document.getElementById("content");
-            // function getData(){
 
-            fetch(targetUrl).then( (response) => {
-                return response.json();
-                }).then( (result) => {
-                    for (let i =0; i < 8; i++){
-                        // console.log(proto_name, proto_foto);
-                        var proto_name = result["result"]["results"][i]["stitle"];
-                        var proto_foto = "http"+ result["result"]["results"][i]["file"].split("http")[1];
+            let count = 0;
+            function getData(){
                 
-                        var spot_box_div = document.createElement("div");
-                        spot_box_div.className = "box";
+                fetch(targetUrl).then( (response) => {
+                    return response.json();
+                    }).then( (result) => {
+                        for (let i = 0; i < 8; i++){
+                            // console.log(proto_name, proto_foto);
+                            var proto_name = result["result"]["results"][count]["stitle"];
+                            var proto_foto = "http"+ result["result"]["results"][count]["file"].split("http")[1];
+                    
+                            var spot_box_div = document.createElement("div");
+                            spot_box_div.className = "box";
 
-                        var spot_foto_img = document.createElement("img");
-                        spot_foto_img.src = proto_foto;
-                    
-                        var spot_name_div = document.createElement("div");
-                        spot_name_div.className = "title";
-                    
-                        var spot_name = document.createTextNode(proto_name);
-                        spot_name_div.appendChild(spot_name);
-                    
-                        spot_box_div.appendChild(spot_foto_img);
-                        spot_box_div.appendChild(spot_name_div);
-                        content.appendChild(spot_box_div);
-                }
-            })       
+                            var spot_foto_img = document.createElement("img");
+                            spot_foto_img.src = proto_foto;
+                        
+                            var spot_name_div = document.createElement("div");
+                            spot_name_div.className = "title";
+                        
+                            var spot_name = document.createTextNode(proto_name);
+                            spot_name_div.appendChild(spot_name);
+                        
+                            spot_box_div.appendChild(spot_foto_img);
+                            spot_box_div.appendChild(spot_name_div);
+                            content.appendChild(spot_box_div);
+
+                            count += 1; 
+                    }
+                })       
+            }
         </script>
 
     </body>
